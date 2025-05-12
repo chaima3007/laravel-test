@@ -38,7 +38,7 @@ class BookingController extends Controller
             'end_date' => 'required|date|after:start_date',
         ]);
 
-        // Vérification des chevauchements
+        
         $overlap = Booking::where('property_id', $property->id)
             ->where(function ($query) use ($request) {
                 $query->whereBetween('start_date', [$request->start_date, $request->end_date])

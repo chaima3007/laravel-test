@@ -57,7 +57,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->middleware([
                 'web',
-                \App\Http\Middleware\IsAdmin::class, // ← ici tu ajoutes ton middleware admin
+                \App\Http\Middleware\IsAdmin::class,
             ])
             ;
     }

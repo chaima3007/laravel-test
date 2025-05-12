@@ -31,8 +31,8 @@ class PropertyResource extends Resource
             Textarea::make('description'),
             TextInput::make('price_per_night')->numeric()->required(),
             FileUpload::make('image')
-                ->image()     // Dossier dans storage/app/public/properties
-                ->directory('properties') // dossier dans storage/app/public/properties
+                ->image()     
+                ->directory('properties') 
                 ->disk('public')  
                 ->maxSize(2048)
                 ->imagePreviewHeight('200')
