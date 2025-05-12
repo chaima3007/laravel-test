@@ -4,3 +4,12 @@
 
 /* Ensure your CSS file is processed by Tailwind's build process */
 
+.flatpickr-day.selected.startRange, 
+.flatpickr-day.selected.endRange {
+    background: #4f46e5;
+    border-color: #4f46e5;
+}
+
+.flatpickr-day.selected.startRange + .selected.endRange:not(:nth-child(7n+1)) {
+    box-shadow: -10px 0 0 #4f46e5;
+}

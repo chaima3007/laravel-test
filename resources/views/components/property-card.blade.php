@@ -1,8 +1,12 @@
-<div class="{{ $class }} group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1 border border-gray-100 flex flex-col h-full">
-    <!-- Image de la propriété -->
+@props(['id', 'title', 'image', 'description', 'price', 'class' => ''])
+<div {{ $attributes->merge(['class' => 'w-full group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1 border border-gray-100 flex flex-col h-full']) }}>
+
+<!-- Image de la propriété -->
     <div class="relative overflow-hidden h-60 flex-shrink-0">
-        <img src="https://source.unsplash.com/random/600x400/?house,{{ rand(1,1000) }}" alt="{{ $title }}"
-             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+     @if ($image)
+    <img src="{{ asset('storage/' . $image) }}" alt="{{ $title }}" class="w-full h-48 object-cover rounded-t">
+@endif
+
         <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
     </div>
 

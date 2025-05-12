@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md p-6">
-    <img src="https://source.unsplash.com/random/800x500/?house,{{ $property->id }}" class="w-full h-80 object-cover rounded-md mb-6" alt="{{ $property->name }}">
+    <img src="{{ asset('storage/' . $property->image) }}" class="w-full h-80 object-cover rounded-md mb-6" alt="{{ $property->name }}">
 
     <h2 class="text-3xl font-bold text-gray-800 mb-2">{{ $property->name }}</h2>
     <p class="text-gray-600 mb-4">{{ $property->description }}</p>

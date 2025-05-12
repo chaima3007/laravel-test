@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\FileUpload;
 
 
 class PropertyResource extends Resource
@@ -29,6 +30,14 @@ class PropertyResource extends Resource
             TextInput::make('name')->required(),
             Textarea::make('description'),
             TextInput::make('price_per_night')->numeric()->required(),
+            FileUpload::make('image')
+                ->image()     // Dossier dans storage/app/public/properties
+                ->directory('properties') // dossier dans storage/app/public/properties
+                ->disk('public')  
+                ->maxSize(2048)
+                ->imagePreviewHeight('200')
+                 ->preserveFilenames() 
+                ->label('Image de la propriété'),
         ]);
     }
 
@@ -38,6 +47,8 @@ class PropertyResource extends Resource
             TextColumn::make('name')->searchable(),
             TextColumn::make('price_per_night')->sortable(),
             TextColumn::make('created_at')->date(),
+            
+
         ]);
     }
 
